@@ -1,4 +1,6 @@
 const express = require("express");
+const passport = require("passport");
+
 const {
   randomController,
   treasureController,
@@ -9,7 +11,12 @@ const router = express.Router();
 
 router.get("/random", randomController);
 
-router.get("/treasure", treasureController);
+/// Here must check if user logged in
+router.get(
+  "/treasure",
+  passport.authenticate("jwt", { session: false }),
+  treasureController
+);
 
 router.post("/", thingCreate);
 
