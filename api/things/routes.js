@@ -14,10 +14,11 @@ router.get("/random", randomController);
 /// Here must check if user logged in
 router.get(
   "/treasure",
+  passport.authenticate("jwt", { session: false }),
 
   treasureController
 );
-// passport.authenticate("jwt", { session: false }),
+// ,
 
 router.post("/", thingCreate);
 

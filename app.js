@@ -13,6 +13,8 @@ app.use(express.json());
 
 // Routes
 app.use("/things", thingRoutes);
+
+app.use(passport.initialize());
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 app.use(userRoutes);
