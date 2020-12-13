@@ -15,10 +15,8 @@ router.get("/random", randomController);
 router.get(
   "/treasure",
   passport.authenticate("jwt", { session: false }),
-
   treasureController
 );
-// ,
 
 router.post("/", thingCreate);
 
